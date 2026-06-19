@@ -43,7 +43,6 @@
         "legalName": "VelocityCraft, LLC",
         "url": "https://velocitycraft.com",
         "logo": "https://www.velocitycraft.com/img/VelocityCraft-Logo.avif",
-        "email": "info@velocitycraft.com",
         "description": "A strategic marketing studio positioning growth companies to be seen, trusted, and valued across digital channels, AI search, and the capital markets.",
         "slogan": "Strategic visibility that makes the market take notice.",
         "sameAs": []
@@ -181,8 +180,8 @@
     /* ---------------- HERO ---------------- */
     .hero{padding:clamp(4rem,11vw,10rem) 0 clamp(3rem,6vw,5rem);position:relative;overflow:hidden;}
     .hero .wrap{position:relative;z-index:1;}
-    .hero-mark{position:absolute;top:clamp(1.5rem,6vw,4rem);right:clamp(-10px,2vw,40px);
-      width:clamp(120px,20vw,300px);color:var(--accent);z-index:0;}
+    .hero-mark{position:absolute;top:clamp(1.5rem,6vw,4rem);right:clamp(24px,5vw,72px);
+      width:clamp(110px,18vw,280px);color:var(--accent);z-index:0;}
     .hero-mark svg{display:block;width:100%;height:auto;}
     .hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.5rem;align-items:end;}
     .hero h1{grid-column:1 / 11;margin:1.6rem 0 0;font-family:var(--serif);font-weight:400;
@@ -460,7 +459,7 @@
           <h2 class="rv">Let&rsquo;s make you <em>findable.</em></h2>
           <div class="act rv">
             <span class="kicker">Start a conversation</span>
-            <a href="/cdn-cgi/l/email-protection#fd94939b92bd8b9891929e9489849e8f9c9b89d39e9290" class="email link accent"><span class="__cf_email__" data-cfemail="9cf5f2faf3dceaf9f0f3fff5e8e5ffeefdfae8b2fff3f1">[email&#160;protected]</span> <span class="arw">&rarr;</span></a>
+            <a id="vc-email-cta" href="#contact" class="email link accent"><span class="vc-addr">Email us</span> <span class="arw">&rarr;</span></a>
           </div>
         </div>
       </div>
@@ -488,7 +487,7 @@
           </div>
           <div class="foot-col">
             <h4>Contact</h4>
-            <a href="/cdn-cgi/l/email-protection#51383f373e1127343d3e3238252832233037257f323e3c"><span class="__cf_email__" data-cfemail="81e8efe7eec1f7e4edeee2e8f5f8e2f3e0e7f5afe2eeec">[email&#160;protected]</span></a>
+            <a id="vc-email-foot" href="#contact">Email us</a>
           </div>
         </div>
       </div>
@@ -496,7 +495,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     /* nav border on scroll */
     const nav=document.querySelector('header.nav');
     addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10));
@@ -511,6 +510,10 @@
       navLinks.classList.remove('open');
       toggle.setAttribute('aria-expanded','false');
     }));
+    /* email (assembled at runtime so host email obfuscation cannot rewrite it) */
+    (function(){var u='info',d='velocitycraft.com',a=u+'@'+d,m='mailto:'+a;
+      var c=document.getElementById('vc-email-cta');if(c){c.href=m;c.querySelector('.vc-addr').textContent=a;}
+      var f=document.getElementById('vc-email-foot');if(f){f.href=m;f.textContent=a;}})();
     /* reveal */
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
     document.querySelectorAll('.rv').forEach(el=>io.observe(el));
